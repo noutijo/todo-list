@@ -8,9 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        primaryColor: "#FF8769",
+      },
     },
   },
   plugins: [],
-};
+}
 
 export default config;

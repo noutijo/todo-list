@@ -1,5 +1,5 @@
 [x] initier le project avec next.js, typescript, et tailwindcss
 [x] structurer le project (creation des dossiers, composants neccesssaire)
-[ ] construire le composant UI AddTodo
-[ ] construire le composant UI TodoItem
+[x] construire le composant UI AddTodo
+[x] construire le composant UI TodoItem
 [ ] integrer l'API

@@ -28,7 +28,7 @@ export default function AddTodo({ onAddTodo }: IProps) {
         value={title}
         type="text"
         placeholder="Add a new todo"
-        className="w-full px-3 py-2 outline-none rounded-lg bg-slate-100 hover:bg-slate-50 hover:border-gray-200 border-gray-300 border-[1px]"
+        className="text-sm w-full px-3 py-2 outline-none rounded-lg bg-slate-100 hover:bg-slate-50 focus:ring-gray-200 focus:border-gray-200 hover:border-gray-200 border-gray-300 border-[1px]"
       />
       <button
         disabled={title == "" ? true : false}

@@ -2,4 +2,4 @@
 [x] structurer le project (creation des dossiers, composants neccesssaire)
 [x] construire le composant UI AddTodo
 [x] construire le composant UI TodoItem
-[ ] integrer l'API
+[x] integrer l'API

@@ -4,7 +4,6 @@ import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit"
 import { notifySucess, notifyError } from "@/components/ui/alert"
 
 import { getAllTodos, deleteTodo, addTodo, checkTodo } from "@/lib/todo"
-import { useAppDispatch } from "../hooks"
 
 const initialState = {
   isTodosLoading: true,
@@ -217,6 +216,7 @@ const getTodosFromLocalStorage = () => {
   const storedTodosArray = JSON.parse(storedTodos!)
   return storedTodosArray
 }
+
 const storeTodosInLocalStorage = (todos: ITodo) => {
   // Convert the array of objects to a string
   const arrayOfObjectsString = JSON.stringify(todos)

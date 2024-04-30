@@ -23,6 +23,7 @@
       "@/styles/*": ["styles/*"],
       "@/redux/*": ["redux/*"],
       "@/hooks/*": ["hooks/*"],
+      "@/interfaces/*": ["interfaces/*"],
       "@/lib/*": ["lib/*"]
     }
   },

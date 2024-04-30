@@ -9,6 +9,36 @@ export const getAllTodos = async () => {
   return res.json()
 }
 
+// add todo
+export const addTodo = async (title: string) => {
+  const res = await fetch(`${BASE_API}`, {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+
+  return res
+}
+
+// check todo
+export const checkTodo = async (id: number, completed: boolean) => {
+  const res = await fetch(`${BASE_API}/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      completed,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+
+  return res
+}
+
 // delete todo
 export const deleteTodo = async (id: number) => {
   const res = await fetch(`${BASE_API}/${id}`, {

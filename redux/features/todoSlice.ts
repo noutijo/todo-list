@@ -1,14 +1,17 @@
+import { ITodo } from "@/interfaces/Todo"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 import { notifySucess, notifyError } from "@/components/ui/alert"
 
-import { getAllTodos, deleteTodo } from "@/lib/todo"
+import { getAllTodos, deleteTodo, addTodo, checkTodo } from "@/lib/todo"
 
 const initialState = {
   isTodosLoading: true,
+  isAdding: false,
   todos: [],
 } as any
 
+// get all todos
 export const getTodos = createAsyncThunk(
   "todo/getAllTodos",
   async (payload, { rejectWithValue }) => {
@@ -27,6 +30,63 @@ export const getTodos = createAsyncThunk(
   }
 )
 
+// add todo
+export const add = createAsyncThunk(
+  "todo/add",
+  async (payload, { rejectWithValue, dispatch }) => {
+    try {
+      // @ts-ignore
+      const title = payload.title as string
+
+      // @ts-ignore
+      const todo = await addTodo(title)
+
+      if (todo.status === 201) {
+        notifySucess("Succefull add todo.")
+        // @ts-ignore
+        dispatch(getAllTodos())
+        return { success: true }
+      } else {
+        notifyError("Error when adding.")
+        // @ts-ignore
+        dispatch(getAllTodos())
+        return { success: false }
+      }
+    } catch (error) {
+      return rejectWithValue("Something went wrong!")
+    }
+  }
+)
+
+// check todo
+export const check = createAsyncThunk(
+  "todo/check",
+  async (payload, { rejectWithValue, dispatch }) => {
+    try {
+      // @ts-ignore
+      const id = payload.id as number
+      // @ts-ignore
+      const completed = !payload.completed as boolean
+      // @ts-ignore
+      const todo = await checkTodo(id, completed)
+
+      if (todo.status === 200) {
+        // @ts-ignore
+        dispatch(getAllTodos())
+        return { success: true, id, completed } as any
+      } else {
+        notifyError("Error when checking.")
+        // @ts-ignore
+        dispatch(getAllTodos())
+        return { success: false }
+      }
+    } catch (error) {
+      return rejectWithValue("Something went wrong!")
+    }
+  }
+)
+
+// delete todo
 export const delTodo = createAsyncThunk(
   "todo/deleted",
   async (payload, { rejectWithValue }) => {
@@ -36,9 +96,8 @@ export const delTodo = createAsyncThunk(
 
       // @ts-ignore
       const todo = await deleteTodo(id)
-            console.log("resss", todo)
 
-      if (todo.status===200) {
+      if (todo.status === 200) {
         notifySucess("Succefull delete todo.")
         return { success: true, id } as any
       } else {
@@ -67,7 +126,40 @@ const todoSlice = createSlice({
     builder.addCase(getTodos.rejected, (state, { payload }) => {
       state.isTodosLoading = false
     })
-    // deleted user by admin
+    // add todo
+    builder.addCase(add.pending, (state, { payload }) => {
+      state.isAdding = true
+    })
+    builder.addCase(add.fulfilled, (state, { payload }) => {
+      state.isAdding = false
+    })
+    builder.addCase(add.rejected, (state, { payload }) => {
+      state.isAdding = false
+    })
+    // check todo
+    builder.addCase(check.pending, (state, { payload }) => {
+      state.isChecking = true
+    })
+    builder.addCase(check.fulfilled, (state, { payload }) => {
+      const { id, completed } = payload
+      console.log("fullkl", completed)
+      state.todos = state.todos.map((todo: ITodo) => {
+        // If the current todo's id matches the id we're looking for
+        if (todo.id === id) {
+          // Return a new todo with the completed property updated
+          return { ...todo, completed }
+        } else {
+          // Return the unchanged toto
+          return todo
+        }
+      })
+
+      state.isChecking = false
+    })
+    builder.addCase(check.rejected, (state, { payload }) => {
+      state.isChecking = false
+    })
+    // deleted todo
     builder.addCase(delTodo.pending, (state, { payload }) => {
       state.isdeleting = true
     })

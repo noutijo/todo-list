@@ -35,7 +35,7 @@ export default function TodoItem({
         className="cursor-pointer w-[1.2rem] h-[1.2rem] text-primaryColor bg-gray-100 border-gray-300 rounded focus:ring-primaryColor dark:ring-offset-gray-800 focus:ring-1 dark:bg-gray-700 dark:border-gray-600"
       />
 
-      <p onClick={checkTodo} className="w-full line-clamp-1 font-[500]">{title}</p>
+      <p onClick={checkTodo} className="w-full line-clamp-1 font-[500] cursor-pointer">{title}</p>
 
       <div
         onClick={deleteTodo}

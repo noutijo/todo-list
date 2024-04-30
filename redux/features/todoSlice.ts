@@ -1,7 +1,7 @@
 import { ITodo } from "@/interfaces/Todo"
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit"
 
-import { notifySucess, notifyError } from "@/components/ui/alert"
+import { notifySucess, notifyError } from "@/lib/utils/alert"
 
 import { getAllTodos, deleteTodo, addTodo, checkTodo } from "@/lib/todo"
 

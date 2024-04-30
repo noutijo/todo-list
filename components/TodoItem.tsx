@@ -3,7 +3,7 @@ import { useState } from "react"
 
 interface IProps {
   title: string
-  completed?: boolean
+  completed: boolean
   onCheckTodo: () => void
   onDeleteTodo: () => void
 }

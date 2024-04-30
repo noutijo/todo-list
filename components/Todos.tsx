@@ -1,10 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import AddTodo from "./AddTodo"
 import TodoItem from "./TodoItem"
 import { ITodo } from "@/interfaces/Todo"
-
 import { getTodos, delTodo, add, check } from "@/redux/features/todoSlice"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
 
@@ -18,8 +17,9 @@ export default function Todos() {
   )
 
   const handleAddTodo = (title: string) => {
+    const id = new Date().getTime()
     // @ts-ignore
-    dispatch(add({ title }), {})
+    dispatch(add({ id, title }), {})
   }
 
   const handleCheckTodo = (id: number, completed: boolean) => {

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .input-border-style {
+        @apply outline-none rounded-lg bg-slate-100 hover:bg-slate-50 focus:ring-primaryColor focus:border-primaryColor hover:border-primaryColor border-gray-300 border-[1px] text-sm w-full px-3 py-2 font-[500];
+    }
+}

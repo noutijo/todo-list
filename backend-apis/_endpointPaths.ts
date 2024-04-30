@@ -1,7 +1,3 @@
-const BASE_URL = "https://jsonplaceholder.typicode.com"
-const BASE_API = `${BASE_URL}/posts`
+const BASE_URL = "https://jsonplaceholder.typicode.com/todos"
 
-export const BackendApiEndpoints = {
-  TODOS_LIST: `${BASE_API}`,
-  TODO_ITEM: `${BASE_API}/{todo_id}`,
-}
+export const BASE_API = `${BASE_URL}`

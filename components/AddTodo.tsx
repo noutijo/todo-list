@@ -12,7 +12,7 @@ export default function AddTodo({ onAddTodo }: IProps) {
   let [title, setTitle] = useState<string>("")
 
   const isAdding = useAppSelector((state) => state?.todoReducer.isAdding)
-  
+
   const OnChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value)
   }
@@ -38,8 +38,8 @@ export default function AddTodo({ onAddTodo }: IProps) {
         disabled={title == "" ? true : false}
         onClick={addTodo}
         className={`${
-          title == "" ? "opacity-70" : ""
-        } w-full md:w-fit px-4 py-2 bg-primaryColor text-white rounded-full flex items-center justify-center`}>
+          title == "" ? "opacity-[40%]" : ""
+        } transition-all duration-300 ease-in font-medium w-full md:w-fit px-4 py-2 bg-primaryColor text-white rounded-full flex items-center justify-center`}>
         {isAdding ? (
           <ClipLoader
             color={"#fffff"}

@@ -3,22 +3,29 @@
 import { useEffect, useState } from "react"
 import AddTodo from "./AddTodo"
 import TodoItem from "./TodoItem"
-import { ITodo } from "../interfaces/Todo"
+import { ITodo } from "@/interfaces/Todo"
 
-import { getTodos, delTodo } from "@/redux/features/todoSlice"
+import { getTodos, delTodo, add, check } from "@/redux/features/todoSlice"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
 
 export default function Todos() {
   // redux custom dispatch
   const dispatch = useAppDispatch()
-  //  redux todo
+  //  get redux state
   const allTodos = useAppSelector((state) => state?.todoReducer.todos)
   const isTodosLoading = useAppSelector(
     (state) => state?.todoReducer.isTodosLoading
   )
 
-  const handleAddTodo = (title: string) => {}
-  const handleCheckTodo = (id: number, done: boolean) => {}
+  const handleAddTodo = (title: string) => {
+    // @ts-ignore
+    dispatch(add({ title }), {})
+  }
+
+  const handleCheckTodo = (id: number, completed: boolean) => {
+    // @ts-ignore
+    dispatch(check({ id, completed }), {})
+  }
 
   const handleDeleteTodo = async (id: number) => {
     // @ts-ignore
@@ -38,7 +45,7 @@ export default function Todos() {
       <h1 className="font-bold text-2xl">Todo App</h1>
       {/* add todo */}
       <AddTodo onAddTodo={handleAddTodo} />
-      {/* list of todos */}
+      {/* list all todos */}
       <div className="divide-y divide flex flex-col max-h-[420px] overflow-y-auto">
         {allTodos?.length >= 1 && isTodosLoading == false ? (
           allTodos?.map((item: ITodo) => (
@@ -46,7 +53,7 @@ export default function Todos() {
               key={item.id}
               title={item.title}
               completed={item.completed}
-              onCheckTodo={() => handleCheckTodo(item.id, !item.completed)}
+              onCheckTodo={() => handleCheckTodo(item.id, item.completed)}
               onDeleteTodo={() => handleDeleteTodo(item.id)}
             />
           ))
@@ -55,7 +62,7 @@ export default function Todos() {
         ) : (
           ""
         )}
-
+        {/* loading skeleton when fetching todos */}
         {isTodosLoading ? <LoadingSkeleton /> : ""}
       </div>
     </div>

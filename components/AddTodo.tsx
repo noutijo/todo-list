@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import { useAppSelector } from "@/redux/hooks"
+import ClipLoader from "react-spinners/ClipLoader"
 
 interface IProps {
   onAddTodo: (title: string) => void
@@ -9,6 +11,8 @@ interface IProps {
 export default function AddTodo({ onAddTodo }: IProps) {
   let [title, setTitle] = useState<string>("")
 
+  const isAdding = useAppSelector((state) => state?.todoReducer.isAdding)
+  
   const OnChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value)
   }
@@ -35,8 +39,17 @@ export default function AddTodo({ onAddTodo }: IProps) {
         onClick={addTodo}
         className={`${
           title == "" ? "opacity-70" : ""
-        } w-full md:w-fit px-4 py-2 bg-primaryColor text-white rounded-full`}>
-        Add
+        } w-full md:w-fit px-4 py-2 bg-primaryColor text-white rounded-full flex items-center justify-center`}>
+        {isAdding ? (
+          <ClipLoader
+            color={"#fffff"}
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        ) : (
+          "Add"
+        )}
       </button>
     </div>
   )

@@ -10,7 +10,7 @@ import StoreWrapper from "@/redux/provider"
 const DM_SANS = DM_Sans({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "To Do List",
+  title: "Todo App",
   description: "Stay organized and conquer your day with a to-do list.",
 }
 

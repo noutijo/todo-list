@@ -3,7 +3,7 @@ import { useState } from "react"
 
 interface IProps {
   title: string
-  isCheck?: boolean
+  done?: boolean
   onCheckTodo: () => void
   onDeleteTodo: () => void
 }
@@ -11,14 +11,14 @@ interface IProps {
 export default function TodoItem({
   title,
   onCheckTodo,
-  isCheck = false,
+  done = false,
   onDeleteTodo,
 }: IProps) {
-  let [check, setCheck] = useState<boolean>(isCheck)
+  let [check, setCheck] = useState<boolean>(done || false)
 
   const checkTodo = () => {
     setCheck((val) => !val)
-    //onCheckTodo()
+    onCheckTodo()
   }
 
   const deleteTodo = () => {

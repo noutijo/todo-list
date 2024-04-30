@@ -3,7 +3,7 @@ import { useState } from "react"
 
 interface IProps {
   title: string
-  done?: boolean
+  completed?: boolean
   onCheckTodo: () => void
   onDeleteTodo: () => void
 }
@@ -11,10 +11,10 @@ interface IProps {
 export default function TodoItem({
   title,
   onCheckTodo,
-  done = false,
+  completed = false,
   onDeleteTodo,
 }: IProps) {
-  let [check, setCheck] = useState<boolean>(done || false)
+  let [check, setCheck] = useState<boolean>(completed || false)
 
   const checkTodo = () => {
     setCheck((val) => !val)
@@ -30,11 +30,12 @@ export default function TodoItem({
       <input
         checked={check}
         onChange={checkTodo}
+        value={title}
         type="checkbox"
         className="cursor-pointer w-[1.2rem] h-[1.2rem] text-primaryColor bg-gray-100 border-gray-300 rounded focus:ring-primaryColor dark:ring-offset-gray-800 focus:ring-1 dark:bg-gray-700 dark:border-gray-600"
       />
 
-      <p className="w-full line-clamp-1">{title}</p>
+      <p className="w-full line-clamp-1 font-[500]">{title}</p>
 
       <div
         onClick={deleteTodo}

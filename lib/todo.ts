@@ -11,7 +11,6 @@ export const getAllTodos = async () => {
 
 // add todo
 export const addTodo = async (id: number, title: string, completed = false) => {
-  console.log(id, title, completed)
   const res = await fetch(`${BASE_API}`, {
     method: "POST",
     body: JSON.stringify({

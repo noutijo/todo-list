@@ -38,10 +38,10 @@ export default function TodoItem({
       {/* tittle with tooltip start here */}
       <a
         onClick={checkTodo}
-        className="w-full line-clamp-1 font-[500] cursor-pointer"
+        className="w-full line-clamp-1 font-[500] h-full cursor-pointer"
         data-tooltip-id="my-tooltip"
         data-tooltip-variant="light"
-        data-tooltip-delay-show={100}
+        data-tooltip-delay-show={0}
         data-tooltip-content={title}>
         {title}
       </a>

@@ -1,6 +1,5 @@
 import { TrashIcon } from "@heroicons/react/24/outline"
 import { useState } from "react"
-import { Tooltip } from "react-tooltip"
 
 interface IProps {
   title: string
@@ -38,8 +37,7 @@ export default function TodoItem({
       {/* tittle with tooltip start here */}
       <p
         onClick={checkTodo}
-        className="w-full line-clamps-1 font-[500] h-full cursor-pointer"
-        >
+        className="w-full line-clamps-1 font-[500] h-full cursor-pointer">
         {title}
       </p>
       <div

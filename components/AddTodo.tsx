@@ -26,20 +26,20 @@ export default function AddTodo({ onAddTodo }: IProps) {
   }
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-4">
+    <div className="flex flex-col md:flex-row items-center gap-3">
       <input
         onChange={OnChangeTitle}
         value={title}
         type="text"
         placeholder="Add a new todo"
-        className="input-border-style"
+        className="input-border-style transition-all duration-100 ease-in"
       />
       <button
         disabled={title == "" ? true : false}
         onClick={addTodo}
         className={`${
           title == "" ? "opacity-[40%]" : ""
-        } transition-all duration-300 ease-in font-medium w-full md:w-fit px-4 py-2 bg-primaryColor text-white rounded-full flex items-center justify-center`}>
+        } transition-all duration-300 ease-in font-medium w-full md:w-[5rem] px-4 py-2 bg-primaryColor text-white rounded-full flex items-center justify-center`}>
         {isAdding ? (
           <ClipLoader
             color={"#fffff"}

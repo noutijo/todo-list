@@ -55,7 +55,7 @@ export const add = createAsyncThunk(
       const todo = await addTodo(id, title)
 
       if (todo.status === 201) {
-        notifySucess("Succefull add todo.")
+        notifySucess("Successfully add todo!")
         dispatch(update({ success: true, id, title, completed: false, userId:1 }))
         dispatch(getTodos())
       } else {
@@ -107,7 +107,7 @@ export const delTodo = createAsyncThunk(
       const todo = await deleteTodo(id)
 
       if (todo.status === 200) {
-        notifySucess("Succefull delete todo.")
+        notifySucess("Successfully delete todo!")
         dispatch(remove({ success: true, id }))
         dispatch(getTodos())
       } else {

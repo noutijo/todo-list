@@ -39,7 +39,7 @@ export default function AddTodo({ onAddTodo }: IProps) {
         onClick={addTodo}
         className={`${
           title == "" ? "opacity-[40%]" : ""
-        } transition-all duration-300 ease-in font-medium w-full md:w-[5rem] px-4 py-2 bg-primaryColor text-white rounded-full flex items-center justify-center`}>
+        } transition-all duration-300 ease-in font-medium w-full md:w-[5rem] px-4 py-2 bg-primaryColor hover:bg-primaryColorVariant text-white rounded-full flex items-center justify-center`}>
         {isAdding ? (
           <ClipLoader
             color={"#fffff"}

@@ -22,6 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <link rel="shortcut icon" href="/assets/favicon.svg" />
+      </head>
       <StoreWrapper>
         <body className={`bg-primaryColor ${DM_SANS.className}`}>
           {children}

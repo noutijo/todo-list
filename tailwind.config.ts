@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 const config: Config = {
   content: [
@@ -10,10 +10,11 @@ const config: Config = {
     extend: {
       colors: {
         primaryColor: "#FF8769",
+        primaryColorVariant: "#F97C5D",
       },
     },
   },
   plugins: [require("flowbite/plugin")],
 }
 
-export default config;
+export default config

@@ -15,7 +15,7 @@ const initialState = {
 export const getTodos = createAsyncThunk(
   "todo/getAllTodos",
   async (payload, { rejectWithValue }) => {
-    let todos: ITodo
+    let todos: ITodo[]
 
     try {
       // Retrieve the todos from localStorage
@@ -151,7 +151,7 @@ const todoSlice = createSlice({
             // Return a new todo with the completed property updated
             return { ...todo, completed }
           } else {
-            // Return the unchanged toto
+            // Return the unchanged todo
             return todo
           }
         })
@@ -217,7 +217,7 @@ const getTodosFromLocalStorage = () => {
   return storedTodosArray
 }
 
-const storeTodosInLocalStorage = (todos: ITodo) => {
+const storeTodosInLocalStorage = (todos: ITodo[]) => {
   // Convert the array of objects to a string
   const arrayOfObjectsString = JSON.stringify(todos)
 

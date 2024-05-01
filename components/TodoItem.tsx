@@ -1,6 +1,5 @@
 import { TrashIcon } from "@heroicons/react/24/outline"
 import { useState } from "react"
-import { Tooltip } from "react-tooltip"
 
 interface IProps {
   title: string
@@ -36,22 +35,11 @@ export default function TodoItem({
         className="cursor-pointer w-[1.2rem] h-[1.2rem] text-primaryColor bg-gray-100 border-gray-300 rounded focus:ring-primaryColor dark:ring-offset-gray-800 focus:ring-1 dark:bg-gray-700 dark:border-gray-600"
       />
       {/* tittle with tooltip start here */}
-      <a
+      <p
         onClick={checkTodo}
-        className="w-full line-clamp-1 font-[500] h-full cursor-pointer"
-        data-tooltip-id="my-tooltip"
-        data-tooltip-variant="light"
-        data-tooltip-delay-show={0}
-        data-tooltip-content={title}>
+        className="w-full line-clamps-1 font-[500] h-full cursor-pointer">
         {title}
-      </a>
-      <Tooltip
-        id="my-tooltip"
-        arrowColor="#FF8769"
-        className="!max-w-[400px] !ring-1 !ring-gray-200 !text-wrap !h-auto !text-md !font-[500]"
-      />
-      {/* tittle with tooltip end here */}
-
+      </p>
       <div
         onClick={deleteTodo}
         className="ring-1 ring-primaryColor p-1 rounded-full">

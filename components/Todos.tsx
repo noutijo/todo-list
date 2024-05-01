@@ -1,11 +1,14 @@
 "use client"
 
 import { useEffect } from "react"
+
 import AddTodo from "./AddTodo"
 import TodoItem from "./TodoItem"
 import { ITodo } from "@/interfaces/Todo"
 import { getTodos, delTodo, add, check } from "@/redux/features/todoSlice"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+
+import AnimatedText from "animated-text-letters"
 
 export default function Todos() {
   // redux custom dispatch
@@ -42,7 +45,16 @@ export default function Todos() {
 
   return (
     <div className="text-sm flex flex-col h-auto gap-6 w-full md:max-w-2xl lg:max-w-xl bg-white drop-shadow-xl p-6 lg:p-8 rounded-2xl relative text-black">
-      <h1 className="font-bold text-2xl">Todo App</h1>
+      <h1 className="font-bold text-2xl self-start">
+        <AnimatedText
+          text="Todo App"
+          animation="pop-up"
+          delay={32}
+          easing="ease"
+          transitionOnlyDifferentLetters={true}
+          animationDuration={1000}
+        />
+      </h1>
       {/* add todo */}
       <AddTodo onAddTodo={handleAddTodo} />
       {/* list all todos */}

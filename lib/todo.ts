@@ -10,10 +10,11 @@ export const getAllTodos = async () => {
 }
 
 // add todo
-export const addTodo = async (id: number, title: string, completed = false) => {
+export const addTodo = async (id: number, title: string, completed = false, userId= 1) => {
   const res = await fetch(`${BASE_API}`, {
     method: "POST",
     body: JSON.stringify({
+      userId,
       id,
       title,
       completed,

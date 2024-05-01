@@ -56,7 +56,7 @@ export const add = createAsyncThunk(
 
       if (todo.status === 201) {
         notifySucess("Succefull add todo.")
-        dispatch(update({ success: true, id, title, completed: false }))
+        dispatch(update({ success: true, id, title, completed: false, userId:1 }))
         dispatch(getTodos())
       } else {
         notifyError("Error when adding.")
@@ -125,10 +125,10 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     update(state, { payload }) {
-      const { success, id, title, completed } = payload as any
+      const { success, id, title, completed, userId } = payload as any
 
       if (success) {
-        state.todos.push({ id, title, completed })
+        state.todos.push({ userId, id, title, completed })
         storeTodosInLocalStorage(current(state).todos)
       }
     },

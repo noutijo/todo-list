@@ -26,7 +26,7 @@ export default function TodoItem({
   }
 
   return (
-    <div className="flex items-center gap-3 py-4 px-1 justify-between">
+    <div className="flex items-center gap-3 px-1 justify-between">
       <input
         checked={check}
         onChange={checkTodo}
@@ -34,12 +34,14 @@ export default function TodoItem({
         type="checkbox"
         className="cursor-pointer w-[1.2rem] h-[1.2rem] text-primaryColor bg-gray-100 border-gray-300 rounded focus:ring-primaryColor dark:ring-offset-gray-800 focus:ring-1 dark:bg-gray-700 dark:border-gray-600"
       />
-      {/* tittle with tooltip start here */}
+
+      {/* tittle */}
       <p
         onClick={checkTodo}
-        className="w-full line-clamps-1 font-[500] h-full cursor-pointer">
+        className="py-4 w-full line-clamps-1 font-[500] h-full cursor-pointer">
         {title}
       </p>
+
       <div
         onClick={deleteTodo}
         className="ring-1 ring-primaryColor p-1 rounded-full">

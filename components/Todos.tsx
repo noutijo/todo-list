@@ -52,7 +52,7 @@ export default function Todos() {
           delay={32}
           easing="ease"
           transitionOnlyDifferentLetters={true}
-          animationDuration={1000}
+          animationDuration={2000}
         />
       </h1>
       {/* add todo */}

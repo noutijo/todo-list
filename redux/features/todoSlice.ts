@@ -30,7 +30,6 @@ export const getTodos = createAsyncThunk(
 
       if (todos) {
         storeTodosInLocalStorage(todos)
-
         return todos
       } else {
         notifyError("Error to fetch occur.")

@@ -41,7 +41,7 @@ export default function Todos() {
   }, [])
 
   return (
-    <div className="text-sm flex flex-col h-auto gap-6 w-full md:max-w-2xl lg:max-w-xl bg-white p-6 lg:p-8 rounded-2xl relative text-black">
+    <div className="text-sm flex flex-col h-auto gap-6 w-full md:max-w-2xl lg:max-w-xl bg-white drop-shadow-xl p-6 lg:p-8 rounded-2xl relative text-black">
       <h1 className="font-bold text-2xl">Todo App</h1>
       {/* add todo */}
       <AddTodo onAddTodo={handleAddTodo} />
@@ -86,7 +86,7 @@ const LoadingSkeleton = () => {
   return (
     <div className="animate-pulse w-full flex flex-col gap-3 items-center justify-center">
       {["", "", "", "", "", "", "", "", ""].map((_, __) => (
-        <div key={_} className="rounded bg-slate-200 h-9 w-full"></div>
+        <div key={__} className="rounded bg-slate-200 h-9 w-full"></div>
       ))}
     </div>
   )

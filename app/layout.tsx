@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { DM_Sans } from "next/font/google"
 import "../styles/globals.css"
 import "react-toastify/dist/ReactToastify.css"
+import "animated-text-letters/index.css"
 
 import { ToastContainer } from "react-toastify"
 

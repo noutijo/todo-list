@@ -1,7 +1,5 @@
 
-# Technical Test: To-Do - Next.js
-
-The instructions: [Instructions](https://brumaire-inc.notion.site/Technical-Test-To-Do-Next-js-1c50a0ea223b496182d5e585c8f620eb#ecc8046a5da546b8a041ccd7b2fc7d69).
+# To-Do - Next.js
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
